@@ -15,7 +15,7 @@ function getElements(response) {
   if (response.result === 'success') {
     $('.showCurrency').text(`The conversion between ${response.base_code} & ${response.target_code} is ${response.conversion_rate}.`);
   } else {
-    $('.showErrors').text(`There was an error: ${response}`);
+    $('.showErrors').text(`There was an error: ${response}. You probably got here by entering a non existing currency, good job.`);
   }
 }
 
