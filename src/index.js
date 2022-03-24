@@ -15,7 +15,6 @@ function getElements(response) {
   if (response.result === 'success') {
     $('.showCurrency').text(`The conversion between ${response.base_code} & ${response.target_code} is ${response.conversion_rate}.`);
   } else {
-    console.log(response)
     $('.showErrors').text(`There was an error: ${response}`);
   }
 }
