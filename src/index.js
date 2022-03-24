@@ -15,7 +15,7 @@ function getElements(response) {
   if (response.result === 'success') {
     $('.showCurrency').text(`The conversion between ${response.base_code} & ${response.target_code} is ${response.conversion_rate}.`);
   } else {
-    $('.showErrors').text(`There was an error: ${response}. You probably got here by entering a non existing currency, good job.`);
+    $('.showErrors').text(`There was an error: ${response}. You probably got here by entering a nonexistent currency, good job.`);
   }
 }
 
@@ -25,6 +25,7 @@ async function makeApiCall(code1, code2) {
 }
 
 $(document).ready(function() {
+  
   $('#currencyConversion').click(function() {
     let code1 = $('#currency1').val();
     let code2 = $('#currency2').val();
