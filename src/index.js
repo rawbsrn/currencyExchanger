@@ -11,25 +11,29 @@ function clearFields() {
   $('.showCurrency').text("");
 }
 
-function getElements(response) {
+function getElements(response, value) {
   if (response.result === 'success') {
-    $('.showCurrency').text(`The conversion between ${response.base_code} & ${response.target_code} is ${response.conversion_rate}.`);
+    let worth = response.conversion_rate;
+    console.log(worth);
+    worth = worth * value;
+    $('.showCurrency').append(`The conversion between ${response.base_code} & ${response.target_code} is ${response.conversion_rate}. You have ${worth} ${response.target_code}.`);
   } else {
     $('.showErrors').text(`There was an error: ${response}. You probably got here by entering a nonexistent currency, good job.`);
   }
-}
+}    // let value = $('#value').val();
 
-async function makeApiCall(code1, code2) {
+
+async function makeApiCall(code1, code2,value) {
   const response = await CurrencyService.getCurrency(code1, code2);
-  getElements(response);
+  getElements(response,value);
 }
 
 $(document).ready(function() {
-  
   $('#currencyConversion').click(function() {
     let code1 = $('#currency1').val();
     let code2 = $('#currency2').val();
+    let value = $('#value').val();
     clearFields();
-    makeApiCall(code1,code2);
+    makeApiCall(code1,code2,value);
   });
 });
