@@ -14,13 +14,12 @@ function clearFields() {
 function getElements(response, value) {
   if (response.result === 'success') {
     let worth = response.conversion_rate;
-    console.log(worth);
     worth = worth * value;
     $('.showCurrency').append(`The conversion between ${response.base_code} & ${response.target_code} is ${response.conversion_rate}. You have ${worth} ${response.target_code}.`);
   } else {
     $('.showErrors').text(`There was an error: ${response}. You probably got here by entering a nonexistent currency, good job.`);
   }
-}    // let value = $('#value').val();
+}
 
 
 async function makeApiCall(code1, code2,value) {
@@ -30,8 +29,8 @@ async function makeApiCall(code1, code2,value) {
 
 $(document).ready(function() {
   $('#currencyConversion').click(function() {
-    let code1 = $('#currency1').val();
-    let code2 = $('#currency2').val();
+    let code1 = $('#currency1').val()||"USD";
+    let code2 = $('#currency2').val()||"ZWL";
     let value = $('#value').val();
     clearFields();
     makeApiCall(code1,code2,value);

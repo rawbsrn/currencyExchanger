@@ -17,6 +17,8 @@
 
 Be sure to clone this repo to your local machine by running the command `git clone https://github.com/rawbsrn/currencyExchanger` . After you do this you should be able to open the index.html file located in the <currencyExchanger> folder in the web browser of your choosing. Don't forget to `npm install` and `npm run build`!
 
+You will have to generate your own API key from `https://www.exchangerate-api.com/` . Enter your email address and press the "Get Free Key" button in order to generate a key. See this link for how to set up a .env file to store yout API key securely: `https://www.learnhowtoprogram.com/intermediate-javascript/asynchrony-and-apis/managing-api-keys`
+
 You may need to install Node.js on your machine in order to get working, you can follow the instructions here for more information: https://www.learnhowtoprogram.com/intermediate-javascript/getting-started-with-javascript/installing-node-js
 
 
